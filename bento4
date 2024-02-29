@@ -4,5 +4,5 @@ docker run \
   -it \
   --rm \
   -v "$PWD:/app" \
-  bento4:latest \
+  bitnikcode/bento4:latest \
   "$@"
