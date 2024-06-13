@@ -5,9 +5,10 @@ WORKDIR /app
 ARG BENTO4_VERSION=1.6.0-641
 ENV BENTO4_VERSION=${BENTO4_VERSION}
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    && apt-get install -yq curl tar build-essential cmake \
-    && rm -r /var/lib/apt/lists/*
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y -q curl tar build-essential cmake \
+    && rm -r /var/cache/apt \
+    && rm -r /var/lib/apt/lists
 
 RUN cd ~ \
     && curl -sSlL -O "https://github.com/axiomatic-systems/Bento4/archive/refs/tags/v$BENTO4_VERSION.tar.gz" \
