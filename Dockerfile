@@ -19,7 +19,7 @@ RUN cd /root \
     && mkdir cmakebuild \
     && cd cmakebuild \
     && cmake -DCMAKE_BUILD_TYPE=Release .. \
-    && make \
+    && make -j$(nproc) \
     && make install \
     && cd /root \
     && rm -r "Bento4-$BENTO4_VERSION" \
